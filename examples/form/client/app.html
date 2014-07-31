@@ -1,0 +1,27 @@
+<body>
+  <div style="width: 600px; margin: 50px;">
+    {{#with data}}
+      {{> Page}}
+    {{/with}}
+  </div>
+</body>
+
+<template name="Page">
+  {{#Form class="my-cls" method="submit"}}
+    <input type="text" name="email" placeholder="email">
+
+    <h1>
+      Outer Title: {{title}}
+    </h1>
+
+    <ul>
+      {{#each Form_errors a="b"}}
+        <li>{{error}}</li>
+      {{else}}
+        <li>No errors</li>
+      {{/each}}
+    </ul>
+
+    <input type="submit" value="Sign Up" class="btn">
+  {{/Form}}
+</template>
