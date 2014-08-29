@@ -1,82 +1,46 @@
-Iron.DynamicTemplate
+Iron.Component
 ===============================================================
-Dynamic templates and data contexts for Meteor.
+A Component base class for building UI widgets. This is an alpha project and
+will very likely be replaced by a core package at some point. For this reason,
+it is not published to Atmosphere. Use with caution, but maybe we can use this
+to generate some ideas!
 
-## Templates and Helpers
+TODO: Update to work with METEOR@0.9.1
 
-```html
-<body>
-  {{> DynamicTemplate template=getTemplate data=getDataContext}}
-</body>
-
-<template name="MyDynamicTemplate">
-  My Template Content with Title: {{title}}
-</template>
-```
+### Examples
 
 ```javascript
-if (Meteor.isClient) {
-  UI.body.helpers({
-   getTemplate: function () {
-     return 'MyDynamicTemplate';
-   },
-   
-   getDataContext: function () {
-     return { title: 'My Title' };
-   }
-  });
-}
-```
+Form = Component.create({
+  name: 'Form',
 
-## Parent Data Contexts
+  /* called automatically at init time */
+  init: function (opts) {
+    this._errors = new Meteor.Collection(null);
+  },
 
-```html
-<body>
-  {{#with someParentData}}
-    {{> DynamicTemplate template=getTemplate}}
-  {{/with}}
-</body>
-```
+  /* template helper methods with thisArg pointing to Component */
+  methods: {
+    errors: function () {
+      return this._errors.find();
+    }
+  },
 
-## Default Template Content
+  events: {
+    'submit form': function (e) {
+      e.preventDefault();
+      var values = {someValue: true};
 
-```html
-<body>
-  {{#DynamicTemplate template=getTemplate}}
-    No template yet? No problem just render this default content.
-  {{/DynamicTemplate}}
-</body>
-```
+      // call a method named 'submit' somewhere in the view hierarchy
+      this.call('submit', e, values, form);
+    }
+  },
 
-## From JavaScript
-```html
-<body>
- <div id="optional-container">
- </div>
-</body>
+  render: function () {
+    // by default render this component's template
+    // otherwise customize here.
 
-<template name="MyDynamicTemplate">
-  My Template Content with Title: {{title}}
-</template>
-```
-
-```javascript
-if (Meteor.isClient) {
-  Meteor.startup(function () {
-    // create a new DynamicTemplate instance and optionally set the initial template and data.
-    dynamic = new Iron.DynamicTemplate({ /* template: 'One', data: getData */});
-    
-    // render the component and insert it into the dom defaulting to document.body.
-    dynamic.insert({el: '#optional-container'});
-    
-    // dynamically set the template.
-    dynamic.template('MyDynamicTemplate');
-    
-    // dynamically set the data context.
-    dynamic.data({title: 'My Title'});
-    
-    // clear the dynamic template
-    dynamic.clear();
-  });
-}
+    var view = self.lookupTemplate();
+    return HTML.FORM(this.options, view);
+  }
+});
 ```
