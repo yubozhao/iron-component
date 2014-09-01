@@ -11,6 +11,8 @@ Package.on_use(function (api) {
   api.use('tracker');
   api.use('templating');
   api.use('blaze');
+  api.use('check');
+  api.use('reactive-dict');
 
   api.use('iron:core@0.3.2');
   api.imply('iron:core');
