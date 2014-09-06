@@ -1,11 +1,11 @@
 Package.describe({
   summary: 'UI Component base class',
-  version: "0.1.0",
+  version: "1.0.0-pre0",
   git: "https://github.com/eventedmind/iron-component"
 });
 
 Package.on_use(function (api) {
-  api.versionsFrom('METEOR@0.9.1-rc2');
+  api.versionsFrom('METEOR@0.9.2-rc0');
   api.use('underscore');
   api.use('jquery')
   api.use('tracker');
@@ -14,7 +14,7 @@ Package.on_use(function (api) {
   api.use('check');
   api.use('reactive-dict');
 
-  api.use('iron:core@0.3.2');
+  api.use('iron:core@1.0.0-pre0');
   api.imply('iron:core');
 
   api.add_files('lib/component.js', 'client');
