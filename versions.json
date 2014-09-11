@@ -33,6 +33,10 @@
       "1.0.0-pre0"
     ],
     [
+      "iron:dynamic-template",
+      "1.0.0-pre0"
+    ],
+    [
       "jquery",
       "1.0.0"
     ],
@@ -75,6 +79,10 @@
     [
       "tracker",
       "1.0.2-rc1"
+    ],
+    [
+      "ui",
+      "1.0.1-rc0"
     ],
     [
       "underscore",

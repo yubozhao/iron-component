@@ -16,6 +16,7 @@ Package.on_use(function (api) {
 
   api.use('iron:core@1.0.0-pre0');
   api.imply('iron:core');
+  api.use('iron:dynamic-template@1.0.0-pre0');
 
   api.add_files('lib/component.js', 'client');
 });
