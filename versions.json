@@ -34,11 +34,11 @@
     ],
     [
       "iron:core",
-      "1.0.0-pre1"
+      "1.0.0-pre2"
     ],
     [
       "iron:dynamic-template",
-      "1.0.0-pre1"
+      "1.0.0-pre2"
     ],
     [
       "jquery",
@@ -94,6 +94,6 @@
     ]
   ],
   "pluginDependencies": [],
-  "toolVersion": "meteor-tool@1.0.30",
+  "toolVersion": "meteor-tool@1.0.31",
   "format": "1.0"
 }
