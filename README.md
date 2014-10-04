@@ -36,4 +36,6 @@ Form.events({
     this.call('submit', e, values, form);
   }
 });
+
+Form.registerHelper();
 ```
