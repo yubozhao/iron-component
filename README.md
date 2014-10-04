@@ -1,11 +1,6 @@
 Iron.Component
 ===============================================================
-A Component base class for building UI widgets. This is an alpha project and
-will very likely be replaced by a core package at some point. For this reason,
-it is not published to Atmosphere. Use with caution, but maybe we can use this
-to generate some ideas!
-
-TODO: Update to work with METEOR@0.9.1
+A Component base class for building UI widgets.
 
 ### Examples
 
